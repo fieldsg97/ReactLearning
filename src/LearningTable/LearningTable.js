@@ -41,8 +41,9 @@ const LearningTable = () => {
 
     return (
         //class name matches theme name that is imported
+        <div>
         <div className={isToggled ? 'ag-theme-alpine' : 'ag-theme-alpine-dark'}
-            style={{ width: '100%', height: '50vh' }}>
+            style={{ width: '100%', height: '50vh', marginBottom: '100px'}}>
             <button className={buttonStyle} data-testid="themeButton" onClick={toggleClassName}>{buttonText}</button>
             <AgGridReact
                 ref={gridRef}
@@ -52,6 +53,7 @@ const LearningTable = () => {
                 animateRows={true}
                 style={{ width: '100%', height: '50vh' }}
             />
+        </div>
         </div>
     );
 }

@@ -40,8 +40,8 @@ const CryptoTable = () => {
 
   return (
     <div>
+      <h1>Bitcoin Price Tracker</h1>
       <div>
-      <h1 className='bitcoinPriceHeader'>Current Bitcoin Price</h1>
         <button className="refreshCryptoButton"
          onClick={handleRefresh}
          style={{ height: '40px', width: '600px' }}

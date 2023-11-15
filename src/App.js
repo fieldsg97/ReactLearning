@@ -9,11 +9,8 @@ function App() {
 
   return (
     <div
-      style={{ width: '100%', height: '50vh' }}>
-      <LearningTable />
-      <br />
-      <br />
-      <br />
+      style={{ width: '100%', height: '50vh'}}>
+      <LearningTable/>
       <CryptoTable />
     </div>
   );
