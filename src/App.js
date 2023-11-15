@@ -13,6 +13,8 @@ import useClassNameToggle from './customHooks';
 import './customStyles.css';
 import styles from './customStyles.css';
 
+import CryptoTable from './CryptoTable';
+
 function App() {
 
   const gridRef = useRef();
@@ -79,8 +81,8 @@ Since there are no dependencies, the memoized result remains the same throughout
   return (
     //class name matches theme name that is imported
     <div className={isToggled ? 'ag-theme-alpine' : 'ag-theme-alpine-dark'}
-      style={{ height: 500, width: 600 }}>
-        <button className={buttonStyle} onClick={toggleClassName}>{buttonText}</button>
+      style={{ height: 675, width: 600 }}>
+        <button className={buttonStyle} data-testid="themeButton" onClick={toggleClassName}>{buttonText}</button>
       <AgGridReact
         ref={gridRef}
         onCellClicked={cellClickedListener}
@@ -89,6 +91,8 @@ Since there are no dependencies, the memoized result remains the same throughout
         defaultColDef={defaultColDef}
         animateRows={true}
       />
+       <h1 className='bitcoinPriceHeader'>Current Bitcoin Price</h1>
+      <CryptoTable />
     </div>
   );
 }
