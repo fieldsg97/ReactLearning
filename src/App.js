@@ -1,17 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import { AgGridReact } from 'ag-grid-react';
 
-import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 
-import useClassNameToggle from './customHooks';
+import useClassNameToggle from './CustomHooks/themeButtonToggleHook';
 import './customStyles.css';
-import styles from './customStyles.css';
 
 import CryptoTable from './CryptoTable';
 
@@ -61,11 +60,6 @@ Since there are no dependencies, the memoized result remains the same throughout
     filter: true
   }), []);
 
-
-  const cellClickedListener = useCallback(e => {
-    console.log('cellClicked', e);
-  });
-
   useEffect(() => {
     fetch('https://www.ag-grid.com/example-assets/row-data.json')
       .then(result => result.json())
@@ -74,22 +68,22 @@ Since there are no dependencies, the memoized result remains the same throughout
 
   //ternary operator variable for changing buttonText based on current theme
   const buttonText = isToggled ? 'Dark Mode' : 'Light Mode';
-
   const buttonStyle = isToggled ? "buttonDarkMode" : "buttonLightMode";
+
 
 
   return (
     //class name matches theme name that is imported
     <div className={isToggled ? 'ag-theme-alpine' : 'ag-theme-alpine-dark'}
-      style={{ height: 675, width: 600 }}>
+    style={{ width: '100%', height: '50vh' }}>
         <button className={buttonStyle} data-testid="themeButton" onClick={toggleClassName}>{buttonText}</button>
       <AgGridReact
         ref={gridRef}
-        onCellClicked={cellClickedListener}
         rowData={rowData}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         animateRows={true}
+        style={{ width: '100%', height: '50vh' }}
       />
        <h1 className='bitcoinPriceHeader'>Current Bitcoin Price</h1>
       <CryptoTable />

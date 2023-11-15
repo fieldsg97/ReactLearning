@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import refreshCryptoButton from './refreshCryptoButton';
 
 const CryptoTable = () => {
   const [rowData, setRowData] = useState([]);
@@ -40,7 +41,12 @@ const CryptoTable = () => {
   return (
     <div>
       <div>
-        <button className='refreshPriceButton' onClick={handleRefresh}>Refresh</button>
+        <button className="refreshCryptoButton"
+         onClick={handleRefresh}
+         style={{ height: '40px', width: '600px' }}
+         >
+          Refresh
+         </button>
       </div>
       <div className="ag-theme-alpine-dark" style={{ height: '400px', width: '600px' }}>
         <AgGridReact
@@ -48,6 +54,7 @@ const CryptoTable = () => {
           columnDefs={columnDefs}
           pagination={true}
           paginationPageSize={10}
+          animateRows={true}
         />
       </div>
     </div>
