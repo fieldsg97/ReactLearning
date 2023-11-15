@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import './CryptoTable.css';
 
 const CryptoTable = () => {
   const [rowData, setRowData] = useState([]);
@@ -40,6 +41,7 @@ const CryptoTable = () => {
   return (
     <div>
       <div>
+      <h1 className='bitcoinPriceHeader'>Current Bitcoin Price</h1>
         <button className="refreshCryptoButton"
          onClick={handleRefresh}
          style={{ height: '40px', width: '600px' }}

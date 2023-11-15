@@ -3,8 +3,8 @@ import { AgGridReact } from 'ag-grid-react';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import useClassNameToggle from './CustomHooks/themeButtonToggleHook';
-import './customStyles.css';
+import useClassNameToggle from '../CustomHooks/themeButtonToggleHook';
+import './LearningTable.css'
 
 const LearningTable = () => {
 
