@@ -3,7 +3,8 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 // import './customStyles.css';
 import CryptoTable from './CryptoTable/CryptoTable';
-import LearningTable from './LearningTable/LearningTable';
+// import LearningTable from './LearningTable/LearningTable';
+import LearningTable from "./LearningTable/LearningTable";
 
 function App() {
 

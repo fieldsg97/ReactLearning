@@ -1,19 +1,26 @@
 import { AgGridReact } from 'ag-grid-react';
 import { useState, useEffect, useMemo, useRef } from 'react';
-import axios from 'axios';  // Import axios
+import axios from 'axios';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import useClassNameToggle from '../CustomHooks/themeButtonToggleHook';
 import './LearningTable.css';
+import React from 'react';
 
-const LearningTable = () => {
-  const gridRef = useRef();
+interface Car {
+  make: string;
+  model: string;
+  price: number;
+}
+
+const LearningTable: React.FC = () => {
+  const gridRef = useRef<AgGridReact>(null);
   const { isToggled, toggleClassName } = useClassNameToggle();
 
-  const [rowData, setRowData] = useState([
+  const [rowData, setRowData] = useState<Car[]>([
     { make: 'Ford', model: 'Focus', price: 40000 },
     { make: 'Toyota', model: 'Celica', price: 45000 },
-    { make: 'BMW', model: '4 Seriess', price: 50000 }
+    { make: 'BMW', model: '4 Series', price: 50000 }
   ]);
 
   const [columnDefs, setColumnDefs] = useState([
@@ -62,7 +69,7 @@ const LearningTable = () => {
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           animateRows={true}
-          style={{ width: '100%', height: '50vh' }}
+        //   style={{ width: '100%', height: '50vh' }}
         />
       </div>
     </div>
