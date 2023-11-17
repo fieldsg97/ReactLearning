@@ -44,6 +44,7 @@ const CryptoTable = () => {
       <div>
         <button className="refreshCryptoButton"
          onClick={handleRefresh}
+         data-testid="refreshCryptoButton"
          style={{ height: '40px', width: '600px' }}
          >
           Refresh

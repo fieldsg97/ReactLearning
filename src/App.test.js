@@ -30,13 +30,28 @@ test('button click changes state and shows a message', async () => {
 
 });
 
-test('Should Load grid and button', async () => {
+test('Should Show Car Table and Theme Changer Button', async () => {
   // Render the component
   render(<App />);
 
-  expect(screen.getByRole('button')).toBeInTheDocument();
-  expect(screen.getByText('Make')).toBeVisible();
+  expect(screen.getByTestId('themeButton')).toBeVisible();
+
+  expect(screen.getByText('Make')).toBeInTheDocument();
   expect(screen.getByText('Model')).toBeInTheDocument();
   expect(screen.getByText('Price')).toBeInTheDocument();
+})
+
+test('Should Show Bitcoin Price Tracker Table and Refresh Price Button', async () => {
+  render(<App />);
+
+  expect(screen.getByTestId('refreshCryptoButton')).toBeVisible();
+
+  expect(screen.getByText('Bitcoin Price Tracker')).toBeVisible();
+
+  expect(screen.getByText('Currency')).toBeInTheDocument();
+  expect(screen.getByText('Rate')).toBeInTheDocument();
+  expect(screen.getByText('Description')).toBeInTheDocument();
 
 })
+
+
