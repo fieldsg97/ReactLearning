@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import './CryptoTable.css';
 import axios from 'axios';
+import { ColDef, ColGroupDef } from 'ag-grid-community';
 
-const CryptoTable = () => {
-  const [rowData, setRowData] = useState([]);
+interface CurrencyData {
+  currency: string;
+  rate: string;
+  description: string;
+}
+
+const CryptoTable: React.FC = () => {
+  const [rowData, setRowData] = useState<CurrencyData[]>([]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice.json');
-      const data = response.data;
-      const { bpi } = data;
-      const currencyData = Object.entries(bpi).map(([currency, data]) => ({
+      const data: { bpi: Record<string, { rate: string; description: string }> } = response.data;
+      
+      const currencyData: CurrencyData[] = Object.entries(data.bpi).map(([currency, data]) => ({
         currency,
         rate: data.rate,
         description: data.description,
       }));
+      
       setRowData(currencyData);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -36,7 +43,7 @@ const CryptoTable = () => {
     { headerName: 'Currency', field: 'currency', sortable: true, filter: true },
     { headerName: 'Rate', field: 'rate', sortable: true, filter: true },
     { headerName: 'Description', field: 'description', sortable: true, filter: true },
-  ];
+  ] as (ColDef<CurrencyData, any> | ColGroupDef<CurrencyData>)[]; // Explicitly cast to mutable type
 
   return (
     <div>
@@ -65,3 +72,4 @@ const CryptoTable = () => {
 };
 
 export default CryptoTable;
+
