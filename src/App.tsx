@@ -10,8 +10,8 @@ function App(){
     <Router>
       <Routes>
         <Route path="/" Component={HomePage} />
-        <Route path="/LearningTable" Component={LearningTablePage} />
-        <Route path="/CryptoTable" Component={CryptoTablePage} />
+        <Route path="/LearningTablePage" Component={LearningTablePage} />
+        <Route path="/CryptoTablePage" Component={CryptoTablePage} />
       </Routes>
     </Router>
   );
