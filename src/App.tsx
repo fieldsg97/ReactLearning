@@ -2,14 +2,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage.tsx';
-import SecondPage from './SecondPage.tsx';
+import LearningTablePage from './LearningTable/LearningTablePage.tsx';
+import CryptoTablePage from './CryptoTable/CryptoTablePage.tsx';
 
-const App: React.FC = () => {
+function App(){
   return (
     <Router>
       <Routes>
         <Route path="/" Component={HomePage} />
-        <Route path="/second-page" Component={SecondPage} />
+        <Route path="/LearningTable" Component={LearningTablePage} />
+        <Route path="/CryptoTable" Component={CryptoTablePage} />
       </Routes>
     </Router>
   );

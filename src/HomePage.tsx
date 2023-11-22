@@ -7,11 +7,12 @@ function HomePage() {
   return (
     <div>
       <h1>Home Page - CFA Learning</h1>
-      {/* <BrowserRouter>
-      <Link to="/App">
-        <button>Learning Table Page</button>
+      <Link to="/LearningTablePage">
+        <button>Learning Table Grid</button>
       </Link>
-      </BrowserRouter> */}
+      <Link to="/CryptoTablePage">
+        <button>Bitcoin Price Grid</button>
+      </Link>
     </div>
   );
 }
