@@ -3,17 +3,12 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
-function HomePage() {
+function SecondPage() {
   return (
     <div>
-      <h1>Home Page - CFA Learning</h1>
-      {/* <BrowserRouter>
-      <Link to="/App">
-        <button>Learning Table Page</button>
-      </Link>
-      </BrowserRouter> */}
+      <h1>Second Page - CFA Learning</h1>
     </div>
   );
 }
 
-export default HomePage;
+export default SecondPage;
